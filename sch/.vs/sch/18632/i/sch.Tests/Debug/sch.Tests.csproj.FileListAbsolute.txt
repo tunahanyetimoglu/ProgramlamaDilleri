@@ -1,0 +1,10 @@
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\tr\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\tr\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\sch.Tests.dll
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\sch.Tests.pdb
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\i\sch.Tests\Debug\sch.Tests.dll
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\i\sch.Tests\Debug\sch.Tests.pdb

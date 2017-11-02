@@ -1,0 +1,7 @@
+c:\users\abra\documents\visual studio 2017\Projects\sch\sch\bin\Debug\TinyCsvParser.dll
+c:\users\abra\documents\visual studio 2017\Projects\sch\sch\obj\Debug\sch.csprojResolveAssemblyReference.cache
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\bin\Debug\okul.exe.config
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\bin\Debug\okul.exe
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\bin\Debug\okul.pdb
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\obj\Debug\okul.exe
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\obj\Debug\okul.pdb

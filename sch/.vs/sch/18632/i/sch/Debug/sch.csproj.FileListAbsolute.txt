@@ -1,0 +1,6 @@
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\bin\Debug\okul.exe.config
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\bin\Debug\okul.exe
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\b\bin\Debug\okul.pdb
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\i\sch\Debug\sch.csprojResolveAssemblyReference.cache
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\i\sch\Debug\okul.exe
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\.vs\sch\18632\i\sch\Debug\okul.pdb
