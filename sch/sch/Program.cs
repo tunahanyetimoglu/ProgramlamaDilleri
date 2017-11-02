@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -42,15 +42,15 @@ namespace sch
             if (!pathController(Path))
                 System.Environment.Exit(1);
 
-            var query = student.Parse(Path);
+            var studentOrderedList = student.Parse(Path);
 
-            if (!Student.csvUniqueName(query))
+            if (!Student.csvUniqueName(studentOrderedList))
                 System.Environment.Exit(1);
 
 
             if (args.Length == 0)
             {
-                student.printAll(query);
+                student.printAll(studentOrderedList);
             }
             else if (args.Length > 1)
             {
@@ -58,7 +58,7 @@ namespace sch
             }
             else if (argumanController(args))
             {
-                student.print(student.ListFiltering(query, args[0]));
+                student.print(student.ListFiltering(studentOrderedList, args[0]));
             }
             else if (Regex.IsMatch(args[0], @"^[0-9]+$"))
             {
