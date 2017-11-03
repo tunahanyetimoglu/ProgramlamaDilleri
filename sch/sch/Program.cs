@@ -32,11 +32,6 @@ namespace sch
             return Array.Exists(validArgumans,element => element == arg);
         }
 
-        void run()
-        {
-
-        }
-        
         static void Main(string[] args)
         {
             Student student = new Student();
