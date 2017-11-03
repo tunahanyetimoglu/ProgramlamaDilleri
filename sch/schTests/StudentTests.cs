@@ -11,10 +11,7 @@ namespace sch.Tests
     [TestClass()]
     public class StudentTests
     {
-        public void mainControllerTest()
-        {
-            
-        }
+
         [TestMethod()]
         public void pathControllerTest()
         {
