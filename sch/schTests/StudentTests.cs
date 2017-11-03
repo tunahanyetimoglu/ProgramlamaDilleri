@@ -16,6 +16,7 @@ namespace sch.Tests
         public void pathControllerTest()
         {
             Assert.AreEqual<Boolean>(true, Program.pathController("../../okul.csv"));
+            Assert.AreEqual<Boolean>(false, Program.pathController("../okul.csv"));
         }
 
         
@@ -23,32 +24,28 @@ namespace sch.Tests
         public void uniqueTest()
         {
             sch.Student test = new Student();
-            Assert.AreEqual<Boolean>(true, Student.csvUniqueName(test.Parse("../../okul.csv")));           
+            Assert.AreEqual<Boolean>(true, Student.csvUniqueName(test.Parse("../../okul.csv")));
+            Assert.AreEqual<Boolean>(false, Student.csvUniqueName(test.Parse("../../okul_not_unique.csv")));
         }
 
         [TestMethod()]
         public void argumanControllerTest()
         {
-            Assert.AreEqual<Boolean>(true, Program.argumanController("K"));
+            Assert.AreEqual<Boolean>(true, Student.argumanController("K"));
+            Assert.AreEqual<Boolean>(false, Student.argumanController("erkek"));
         }
 
         [TestMethod()]
-        public void pathControllerTest2()
+        public void argumanControllerErrorMessage()
         {
-            Assert.AreEqual<Boolean>(true, Program.pathController("../okul.csv"));
-        }
+            string[] testArray = new string[] { "1", "K" };
+            string[] testArray2 = new string[] { "5" };
+            string[] testArray3 = new string[] { "erkek" };
 
-        [TestMethod()]
-        public void argumanControllerTest2()
-        {
-            Assert.AreEqual<Boolean>(true, Program.argumanController("erkek"));
-        }
+            Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray));
+            Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray2));
+            Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray3));
 
-        [TestMethod()]
-        public void uniqueTest2()
-        {
-            sch.Student test = new Student();
-            Assert.AreEqual<Boolean>(true, Student.csvUniqueName(test.Parse("../okul.csv")));
         }
     }
     

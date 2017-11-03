@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using TinyCsvParser;
 using TinyCsvParser.Mapping;
 
@@ -68,6 +69,31 @@ namespace sch
 
             else
                 return studentList.Where(student => (student.Result.grade == Convert.ToInt32(args)));
+        }
+
+        public static Boolean argumanController(string arg)
+        {
+            string[] validArgumans = new String[] { "1", "2", "3", "4", "E", "K", "e", "k" };
+
+            return Array.Exists(validArgumans, element => element == arg);
+
+        }
+
+        public static Boolean argumanControllerErrorMessage(string[] args)
+        {
+            if (args.Length > 1)
+            {
+                Console.WriteLine("Hatali Arguman sayisi.");
+            }
+            else if (Regex.IsMatch(args[0], @"^[0-9]+$"))
+            {
+                Console.WriteLine("devre numarası 1 - 4 arasında olmalıdır");
+            }
+            else
+            {
+                Console.WriteLine("Hatalı arguman girisi : {0}", args[0]);
+            }
+            return false;
         }
         public override string ToString()
         {
