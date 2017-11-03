@@ -5,3 +5,4 @@ C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\bin\Debug\okul.exe
 C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\bin\Debug\okul.pdb
 C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\obj\Debug\okul.exe
 C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\obj\Debug\okul.pdb
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll

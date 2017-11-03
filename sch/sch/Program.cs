@@ -25,14 +25,18 @@ namespace sch
                     fs.Close();
             }
         }
-        public static Boolean argumanController(string[] args)
+        public static Boolean argumanController(string arg)
         {
             string[] validArgumans = new String[]{ "1", "2", "3", "4", "E", "K", "e", "k" };
 
-            string arg = args[0];
-
             return Array.Exists(validArgumans,element => element == arg);
         }
+
+        void run()
+        {
+
+        }
+        
         static void Main(string[] args)
         {
             Student student = new Student();
@@ -42,23 +46,23 @@ namespace sch
             if (!pathController(Path))
                 System.Environment.Exit(1);
 
-            var query = student.Parse(Path);
+            var studentOrderedList = student.Parse(Path);
 
-            if (!Student.csvUniqueName(query))
+            if (!Student.csvUniqueName(studentOrderedList))
                 System.Environment.Exit(1);
 
 
             if (args.Length == 0)
             {
-                student.printAll(query);
+                student.printAll(studentOrderedList);
             }
             else if (args.Length > 1)
             {
                 Console.WriteLine("Hatali Arguman sayisi.");
             }
-            else if (argumanController(args))
+            else if (argumanController(args[0]))
             {
-                student.print(student.ListFiltering(query, args[0]));
+                student.print(student.ListFiltering(studentOrderedList, args[0]));
             }
             else if (Regex.IsMatch(args[0], @"^[0-9]+$"))
             {

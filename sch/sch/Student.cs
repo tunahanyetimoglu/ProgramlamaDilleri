@@ -35,11 +35,11 @@ namespace sch
 
                 return studentOrderedList;
         }
-        public static Boolean csvUniqueName(IEnumerable<CsvMappingResult<Student>> studentlist)
+        public static Boolean csvUniqueName(IOrderedEnumerable<CsvMappingResult<Student>> studentOrderedlist)
         {
             List<string> nameList = new List<string>();
            
-            foreach (var student in studentlist)
+            foreach (var student in studentOrderedlist)
             {
                 
                 nameList.Add(student.Result.name);  
