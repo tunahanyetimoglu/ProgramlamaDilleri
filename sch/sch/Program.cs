@@ -25,7 +25,7 @@ namespace sch
                     fs.Close();
             }
         }           
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             Student student = new Student();
 
