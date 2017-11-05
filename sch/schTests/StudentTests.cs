@@ -23,9 +23,8 @@ namespace sch.Tests
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
         public void uniqueTest()
         {
-            sch.Student test = new Student();
-            Assert.AreEqual<Boolean>(true, Student.csvUniqueName(test.Parse("../../okul.csv")));
-            Assert.AreEqual<Boolean>(false, Student.csvUniqueName(test.Parse("../../okul_not_unique.csv")));
+            Assert.AreEqual<Boolean>(true, Student.csvUniqueName(Student.Parse("../../okul.csv")));
+            Assert.AreEqual<Boolean>(false, Student.csvUniqueName(Student.Parse("../../okul_not_unique.csv")));
         }
 
         [TestMethod()]
