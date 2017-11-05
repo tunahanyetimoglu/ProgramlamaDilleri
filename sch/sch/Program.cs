@@ -27,7 +27,7 @@ namespace sch
         static void Main(string[] args)
         {
 
-            const string Path = "../okul.csv";
+            const string Path = "../../okul.csv";
 
             if (!pathController(Path))
                 System.Environment.Exit(-1);
@@ -39,12 +39,16 @@ namespace sch
 
             if (args.Length == 0)
             {
-                Student.printAll(studentOrderedList);
+                Student.printSorteredList(studentOrderedList);
+            }
+            else if (args.Length > 1)
+            {
+                Console.Error.WriteLine("Hatali Arguman sayisi.");
             }
             else if (Student.argumanController(args[0]))
             {
-                Student.print(Student.ListFiltering(studentOrderedList, args[0]));;
-            }           
+                Student.printFilteredList(Student.ListFiltering(studentOrderedList, args[0])); ;
+            }
             else
             {
                 Student.argumanControllerErrorMessage(args);
