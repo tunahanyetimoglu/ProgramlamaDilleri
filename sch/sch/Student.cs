@@ -63,21 +63,25 @@ namespace sch
         {
             String[] genders = new String[] { "K", "k", "E", "e" };
 
+            IEnumerable<String> FilteredList;
+
             if (Array.Exists(genders, element => element == args))
             {
-                var q =
+                FilteredList =
                 studentList.Where(student => (student.Result.gender == args.ToUpper()))
                 .Select(student => (student.Result.grade+ "\t" + student.Result.name+ "\t" + student.Result.surname));
-                return q;
+                return FilteredList;
             }
 
             else
             {
-                var s =
-               studentList.Where(student => (student.Result.gender == args.ToUpper()))
+                FilteredList =
+               studentList.Where(student => (student.Result.grade == Convert.ToInt32(args)))
                .Select(student => (student.Result.name + "\t" + student.Result.surname+"\t" + student.Result.gender));
-                return s;
+                return FilteredList;
             }
+
+
         }
 
         public static Boolean argumanController(string arg)
