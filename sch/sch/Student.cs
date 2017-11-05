@@ -82,22 +82,14 @@ namespace sch
                     return FilteredList;
             }
         }
-
         public static Boolean argumanController(string arg)
         {
             string[] validArgumans = new String[] { "1", "2", "3", "4", "E", "K", "e", "k" };
             return Array.Exists(validArgumans, element => element == arg);
         }
-
         public static Boolean argumanControllerErrorMessage(string[] args)
         {         
-                      
-            if (args.Length > 1)
-            {
-                Console.Error.WriteLine("Hatali Arguman sayisi.");
-            }
-
-            else if (Regex.IsMatch(args[0], @"^[5-9]+$"))
+            if (Regex.IsMatch(args[0], @"^[0-9]+$"))
             {
                 Console.Error.WriteLine("devre numarası 1 - 4 arasında olmalıdır");
             }
@@ -107,7 +99,6 @@ namespace sch
             }
             return false;
         }
-
         public override string ToString()
         {
             return grade.ToString() + "\t " + name.ToString() + "\t " + surname.ToString() + "\t " + gender.ToString();
