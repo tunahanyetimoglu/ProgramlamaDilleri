@@ -25,19 +25,20 @@ namespace sch
                 MapProperty(3, student => student.grade);
             }
         }
-        public static IOrderedEnumerable<CsvMappingResult<Student>> Parse(string path)
+        public static List<CsvMappingResult<Student>> Parse(string path)
         {
                 CsvParserOptions csvParserOptions = new CsvParserOptions(false, ',');
                 CsvPersonMapping csvMapper = new CsvPersonMapping();
                 CsvParser<Student> csvParser = new CsvParser<Student>(csvParserOptions, csvMapper);
 
-                var result = csvParser.ReadFromFile(@path, Encoding.UTF8).ToList();
+                var result = csvParser.ReadFromFile(@path, Encoding.UTF8);
                 var studentOrderedList = result.OrderBy(p => p.Result.grade)
-                                                .ThenBy(p => p.Result.name);
+                                                .ThenBy(p => p.Result.name)
+                                                .ToList();
             
                 return studentOrderedList;
         }
-        public static Boolean csvUniqueName(IOrderedEnumerable<CsvMappingResult<Student>> studentOrderedlist)
+        public static Boolean csvUniqueName(List<CsvMappingResult<Student>> studentOrderedlist)
         {
             List<string> nameList = new List<string>();
            
@@ -50,7 +51,7 @@ namespace sch
 
             return nameList.Count() == uniqueList.Count() ? true : false;                   
         }
-        public static void printSorteredList(IOrderedEnumerable<CsvMappingResult<Student>> studentOrderedList)
+        public static void printSorteredList(List<CsvMappingResult<Student>> studentOrderedList)
         {
             foreach (var student in studentOrderedList)
                 Console.WriteLine(student.Result);
@@ -60,7 +61,7 @@ namespace sch
             foreach (var student in studentFilteredList)
                 Console.WriteLine(student);
         }
-        public static IEnumerable<String> ListFiltering(IOrderedEnumerable<CsvMappingResult<Student>> studentList, string args)
+        public static IEnumerable<String> ListFiltering(List<CsvMappingResult<Student>> studentList, string args)
         {
             String[] genders = new String[] { "K", "k", "E", "e" };
             IEnumerable<String> FilteredList;
@@ -89,12 +90,14 @@ namespace sch
         }
 
         public static Boolean argumanControllerErrorMessage(string[] args)
-        {
+        {         
+                      
             if (args.Length > 1)
             {
                 Console.Error.WriteLine("Hatali Arguman sayisi.");
             }
-            else if (Regex.IsMatch(args[0], @"^[0-9]+$"))
+
+            else if (Regex.IsMatch(args[0], @"^[5-9]+$"))
             {
                 Console.Error.WriteLine("devre numarası 1 - 4 arasında olmalıdır");
             }
@@ -104,6 +107,7 @@ namespace sch
             }
             return false;
         }
+
         public override string ToString()
         {
             return grade.ToString() + "\t " + name.ToString() + "\t " + surname.ToString() + "\t " + gender.ToString();
