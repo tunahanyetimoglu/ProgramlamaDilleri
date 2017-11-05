@@ -45,8 +45,8 @@ namespace sch.Tests
             string[] testArray = new string[] { "5" };
             string[] testArray2 = new string[] { "erkek" };
 
-            Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray));
-            Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray2));
+            Assert.AreEqual<String>("Devre Hatası", Student.argumanControllerErrorMessage(testArray));
+            Assert.AreEqual<String>("Arguman Hatası", Student.argumanControllerErrorMessage(testArray2));
         }
     }
     
