@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace sch
 {
@@ -16,7 +15,7 @@ namespace sch
             }
             catch (Exception e)
             {
-                Console.WriteLine("Hata: Dosya bulunamadı!" );
+                Console.Error.WriteLine("Hata: Dosya bulunamadı!" );
                 return false;
             }
             finally
@@ -27,25 +26,24 @@ namespace sch
         }           
         static void Main(string[] args)
         {
-            Student student = new Student();
 
-            const string Path = "../../okul.csv";
+            const string Path = "../okul.csv";
 
             if (!pathController(Path))
                 System.Environment.Exit(-1);
 
-            var studentOrderedList = student.Parse(Path);
+            var studentOrderedList = Student.Parse(Path);
 
             if (!Student.csvUniqueName(studentOrderedList))
                 System.Environment.Exit(-1);
 
             if (args.Length == 0)
             {
-                student.printAll(studentOrderedList);
+                Student.printAll(studentOrderedList);
             }
             else if (Student.argumanController(args[0]))
             {
-                student.print(student.ListFiltering(studentOrderedList, args[0]));;
+                Student.print(Student.ListFiltering(studentOrderedList, args[0]));;
             }           
             else
             {
