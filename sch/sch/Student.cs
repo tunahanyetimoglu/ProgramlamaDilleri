@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +17,7 @@ namespace sch
         private class CsvPersonMapping : CsvMapping<Student>
         {
             public CsvPersonMapping()
-                : base()
+                : base() // This constructor will call CsvMapping.CsvMapping()
             {
                 MapProperty(0, student => student.name);
                 MapProperty(1, student => student.surname);
@@ -83,15 +83,15 @@ namespace sch
         {
             if (args.Length > 1)
             {
-                Console.WriteLine("Hatali Arguman sayisi.");
+                Console.Error.WriteLine("Hatali Arguman sayisi.");
             }
             else if (Regex.IsMatch(args[0], @"^[0-9]+$"))
             {
-                Console.WriteLine("devre numarası 1 - 4 arasında olmalıdır");
+                Console.Error.WriteLine("devre numarası 1 - 4 arasında olmalıdır");
             }
             else
             {
-                Console.WriteLine("Hatalı arguman girisi : {0}", args[0]);
+                Console.Error.WriteLine("Hatalı arguman girisi : {0}", args[0]);
             }
             return false;
         }
