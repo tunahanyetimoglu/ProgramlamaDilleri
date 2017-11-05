@@ -23,9 +23,22 @@ namespace sch
                 if(fs != null)
                     fs.Close();
             }
-        }           
+        }
+        public static Boolean argsLengthControl(string[] args)
+        {
+            if (args.Length > 1)
+            {
+                Console.Error.WriteLine("Hatali Arguman sayisi.");
+                return false;
+            }
+            else
+                return true;
+        }
         static void Main(string[] args)
         {
+
+            if (!argsLengthControl(args))
+                System.Environment.Exit(-1);
 
             const string Path = "../../okul.csv";
 
@@ -40,10 +53,6 @@ namespace sch
             if (args.Length == 0)
             {
                 Student.printSorteredList(studentOrderedList);
-            }
-            else if (args.Length > 1)
-            {
-                Console.Error.WriteLine("Hatali Arguman sayisi.");
             }
             else if (Student.argumanController(args[0]))
             {
