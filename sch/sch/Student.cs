@@ -87,10 +87,9 @@ namespace sch
             string[] validArgumans = new String[] { "1", "2", "3", "4", "E", "K", "e", "k" };
             return Array.Exists(validArgumans, element => element == arg);
         }
-        public static string argumanControllerErrorMessage(string[] args)
-        {   
-            
-            if (Regex.IsMatch(args[0], @"^[0-9]+$"))
+        public static string argumanControllerErrorMessage(string arg)
+        {             
+            if (Regex.IsMatch(arg, @"^[0-9]+$"))
             {
                 Console.Error.WriteLine("devre numarası 1 - 4 arasında olmalıdır");
                 return "Devre Hatası";
@@ -98,10 +97,9 @@ namespace sch
             }
             else
             {
-                Console.Error.WriteLine("Hatalı arguman girisi : {0}", args[0]);
+                Console.Error.WriteLine("Hatalı arguman girisi : {0}", arg);
                return "Arguman Hatası";
-            }
-            
+            }         
         }
         public override string ToString()
         {
