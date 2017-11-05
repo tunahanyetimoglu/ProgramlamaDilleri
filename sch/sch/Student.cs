@@ -14,7 +14,7 @@ namespace sch
         public string surname { get; set; }
         public int grade { get; set; }
         public string gender { get; set; }
-        private class CsvPersonMapping : CsvMapping<Student>
+        private class CsvPersonMapping : CsvMapping<Student> // T tipi referanslı(class,interface,array) ve,constructor parametresiz
         {
             public CsvPersonMapping()
                 : base() // This constructor will call CsvMapping.CsvMapping()
@@ -41,34 +41,43 @@ namespace sch
             List<string> nameList = new List<string>();
            
             foreach (var student in studentOrderedlist)
-            {
-                
+            {                
                 nameList.Add(student.Result.name);  
                 nameList.Add(student.Result.surname);
             }
             List<string> uniqueList = nameList.Distinct().ToList();
 
             return nameList.Count() == uniqueList.Count() ? true : false;                   
-         }
-        public static void printAll(IOrderedEnumerable<CsvMappingResult<Student>> studentOrderedList)
+        }
+        public static void printSorteredList(IOrderedEnumerable<CsvMappingResult<Student>> studentOrderedList)
         {
             foreach (var student in studentOrderedList)
                 Console.WriteLine(student.Result);
         }
-        public static void print(IEnumerable<CsvMappingResult<Student>> studentFilteredList)
+        public static void printFilteredList(IEnumerable<String> studentFilteredList)
         {
             foreach (var student in studentFilteredList)
-                Console.WriteLine(student.Result);
+                Console.WriteLine(student);
         }
-        public static IEnumerable<CsvMappingResult<Student>> ListFiltering(IOrderedEnumerable<CsvMappingResult<Student>> studentList, string args)
+        public static IEnumerable<String> ListFiltering(IOrderedEnumerable<CsvMappingResult<Student>> studentList, string args)
         {
             String[] genders = new String[] { "K", "k", "E", "e" };
 
             if (Array.Exists(genders, element => element == args))
-                return studentList.Where(student => (student.Result.gender == args.ToUpper()));
+            {
+                var q =
+                studentList.Where(student => (student.Result.gender == args.ToUpper()))
+                .Select(student => (student.Result.grade+ "\t" + student.Result.name+ "\t" + student.Result.surname));
+                return q;
+            }
 
             else
-                return studentList.Where(student => (student.Result.grade == Convert.ToInt32(args)));
+            {
+                var s =
+               studentList.Where(student => (student.Result.gender == args.ToUpper()))
+               .Select(student => (student.Result.name + "\t" + student.Result.surname+"\t" + student.Result.gender));
+                return s;
+            }
         }
 
         public static Boolean argumanController(string arg)
