@@ -43,7 +43,7 @@ namespace sch
             const string Path = "../../okul.csv";
 
             if (!pathController(Path))
-                System.Environment.Exit(-1);
+                System.Environment.Exit(-1); 
 
             var studentOrderedList = Student.Parse(Path);
 
@@ -56,11 +56,11 @@ namespace sch
             }
             else if (Student.argumanController(args[0]))
             {
-                Student.printFilteredList(Student.ListFiltering(studentOrderedList, args[0])); ;
+                Student.printFilteredList(Student.ListFiltering(studentOrderedList, args[0]));
             }
             else
             {
-                Student.argumanControllerErrorMessage(args);
+                Student.argumanControllerErrorMessage(args[0]);
             }
         }
     }
