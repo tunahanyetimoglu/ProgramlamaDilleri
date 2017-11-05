@@ -68,17 +68,17 @@ namespace sch
             if (Array.Exists(genders, element => element == args))
             {
                 FilteredList =
-                studentList.Where(student => (student.Result.gender == args.ToUpper()))
-                .Select(student => (student.Result.grade+ "\t" + student.Result.name+ "\t" + student.Result.surname));
-                return FilteredList;
+                    studentList.Where(student => (student.Result.gender == args.ToUpper()))
+                    .Select(student => (student.Result.grade+ "\t" + student.Result.name+ "\t" + student.Result.surname));
+                    return FilteredList;
             }
 
             else
             {
                 FilteredList =
-               studentList.Where(student => (student.Result.grade == Convert.ToInt32(args)))
-               .Select(student => (student.Result.name + "\t" + student.Result.surname+"\t" + student.Result.gender));
-                return FilteredList;
+                    studentList.Where(student => (student.Result.grade == Convert.ToInt32(args)))
+                    .Select(student => (student.Result.name + "\t" + student.Result.surname+"\t" + student.Result.gender));
+                    return FilteredList;
             }
 
 
