@@ -25,7 +25,7 @@ namespace sch
                 MapProperty(3, student => student.grade);
             }
         }
-        public  IOrderedEnumerable<CsvMappingResult<Student>> Parse(string path)
+        public static IOrderedEnumerable<CsvMappingResult<Student>> Parse(string path)
         {
                 CsvParserOptions csvParserOptions = new CsvParserOptions(false, ',');
                 CsvPersonMapping csvMapper = new CsvPersonMapping();
@@ -50,17 +50,17 @@ namespace sch
 
             return nameList.Count() == uniqueList.Count() ? true : false;                   
          }
-        public void printAll(IOrderedEnumerable<CsvMappingResult<Student>> studentOrderedList)
+        public static void printAll(IOrderedEnumerable<CsvMappingResult<Student>> studentOrderedList)
         {
             foreach (var student in studentOrderedList)
                 Console.WriteLine(student.Result);
         }
-        public void print(IEnumerable<CsvMappingResult<Student>> studentFilteredList)
+        public static void print(IEnumerable<CsvMappingResult<Student>> studentFilteredList)
         {
             foreach (var student in studentFilteredList)
                 Console.WriteLine(student.Result);
         }
-        public IEnumerable<CsvMappingResult<Student>> ListFiltering(IOrderedEnumerable<CsvMappingResult<Student>> studentList, string args)
+        public static IEnumerable<CsvMappingResult<Student>> ListFiltering(IOrderedEnumerable<CsvMappingResult<Student>> studentList, string args)
         {
             String[] genders = new String[] { "K", "k", "E", "e" };
 
