@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using sch;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace sch.Tests
         public void pathControllerTest()
         {
             Assert.AreEqual<Boolean>(true, Program.pathController("../../okul.csv"));
-            Assert.AreEqual<Boolean>(false, Program.pathController("../okul.csv"));
+            Assert.AreEqual<Boolean>(false, Program.pathController("okul.csv"));
         }
 
         
@@ -31,20 +31,22 @@ namespace sch.Tests
         public void argumanControllerTest()
         {
             Assert.AreEqual<Boolean>(true, Student.argumanController("K"));
-            Assert.AreEqual<Boolean>(false, Student.argumanController("erkek"));
+            Assert.AreEqual<Boolean>(false, Student.argumanController("q"));
         }
-
+        [TestMethod()]
+        public void argumanLenghtControl()
+        {
+            string[] testArray = new string[] { "1", "K" };
+            Assert.AreEqual<Boolean>(false, Program.argsLengthControl(testArray));
+        }
         [TestMethod()]
         public void argumanControllerErrorMessage()
         {
-            string[] testArray = new string[] { "1", "K" };
-            string[] testArray2 = new string[] { "5" };
-            string[] testArray3 = new string[] { "erkek" };
+            string[] testArray = new string[] { "5" };
+            string[] testArray2 = new string[] { "erkek" };
 
             Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray));
             Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray2));
-            Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray3));
-
         }
     }
     
