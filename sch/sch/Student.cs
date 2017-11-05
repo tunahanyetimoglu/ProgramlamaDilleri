@@ -32,8 +32,9 @@ namespace sch
                 CsvParser<Student> csvParser = new CsvParser<Student>(csvParserOptions, csvMapper);
 
                 var result = csvParser.ReadFromFile(@path, Encoding.UTF8).ToList();
-                var studentOrderedList = result.OrderBy(p => p.Result.grade);
-
+                var studentOrderedList = result.OrderBy(p => p.Result.grade)
+                                                .ThenBy(p => p.Result.name);
+            
                 return studentOrderedList;
         }
         public static Boolean csvUniqueName(IOrderedEnumerable<CsvMappingResult<Student>> studentOrderedlist)
@@ -62,14 +63,13 @@ namespace sch
         public static IEnumerable<String> ListFiltering(IOrderedEnumerable<CsvMappingResult<Student>> studentList, string args)
         {
             String[] genders = new String[] { "K", "k", "E", "e" };
-
             IEnumerable<String> FilteredList;
 
             if (Array.Exists(genders, element => element == args))
             {
                 FilteredList =
                     studentList.Where(student => (student.Result.gender == args.ToUpper()))
-                    .Select(student => (student.Result.grade+ "\t" + student.Result.name+ "\t" + student.Result.surname));
+                    .Select(student => (student.Result.grade + "\t" + student.Result.name + "\t" + student.Result.surname));;
                     return FilteredList;
             }
 
@@ -77,19 +77,15 @@ namespace sch
             {
                 FilteredList =
                     studentList.Where(student => (student.Result.grade == Convert.ToInt32(args)))
-                    .Select(student => (student.Result.name + "\t" + student.Result.surname+"\t" + student.Result.gender));
+                    .Select(student => (student.Result.name + "\t" + student.Result.surname + "\t" + student.Result.gender));
                     return FilteredList;
             }
-
-
         }
 
         public static Boolean argumanController(string arg)
         {
             string[] validArgumans = new String[] { "1", "2", "3", "4", "E", "K", "e", "k" };
-
             return Array.Exists(validArgumans, element => element == arg);
-
         }
 
         public static Boolean argumanControllerErrorMessage(string[] args)
