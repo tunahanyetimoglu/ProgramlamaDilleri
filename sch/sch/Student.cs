@@ -14,7 +14,7 @@ namespace sch
         public string surname { get; set; }
         public int grade { get; set; }
         public string gender { get; set; }
-        private class CsvPersonMapping : CsvMapping<Student> // T tipi referanslı(class,interface,array) ve,constructor parametresiz
+        private class CsvPersonMapping : CsvMapping<Student>
         {
             public CsvPersonMapping()
                 : base() // This constructor will call CsvMapping.CsvMapping()
@@ -29,12 +29,8 @@ namespace sch
         {
                 CsvParserOptions csvParserOptions = new CsvParserOptions(false, ',');
                 CsvPersonMapping csvMapper = new CsvPersonMapping();
-<<<<<<< HEAD
                 CsvParser<Student> csvParser = 
                     new CsvParser<Student>(csvParserOptions, csvMapper);
-=======
-                CsvParser<Student> csvParser = new CsvParser<Student>(csvParserOptions, csvMapper);
->>>>>>> 360178fa9959b9500e4cd514a96bb53b5aa7c360
 
                 var result = csvParser.ReadFromFile(@path, Encoding.UTF8);
                 var studentOrderedList = result.OrderBy(p => p.Result.grade)
@@ -54,11 +50,7 @@ namespace sch
             }
             List<string> uniqueList = nameList.Distinct().ToList();
 
-<<<<<<< HEAD
             return nameList.Count() == uniqueList.Count();                   
-=======
-            return nameList.Count() == uniqueList.Count() ? true : false;                   
->>>>>>> 360178fa9959b9500e4cd514a96bb53b5aa7c360
         }
         public static void printSorteredList(List<CsvMappingResult<Student>> studentOrderedList)
         {
@@ -70,7 +62,6 @@ namespace sch
             foreach (var student in studentFilteredList)
                 Console.WriteLine(student);
         }
-<<<<<<< HEAD
 
         static IEnumerable<String> selectedGenderList(List<CsvMappingResult<Student>> studentList,string args)
         {
@@ -99,41 +90,6 @@ namespace sch
             else
             {
                 return selectedGradeList(studentList, args);       
-=======
-        public static IEnumerable<String> ListFiltering(List<CsvMappingResult<Student>> studentList, string args)
-        {
-            String[] genders = new String[] { "K", "k", "E", "e" };
-            IEnumerable<String> FilteredList;
-
-            if (Array.Exists(genders, element => element == args))
-            {
-                FilteredList =
-                    studentList.Where(student => (student.Result.gender == args.ToUpper()))
-                    .Select(student => (student.Result.grade + "\t" + student.Result.name + "\t" + student.Result.surname));;
-                    return FilteredList;
-            }
-
-            else
-            {
-                FilteredList =
-                    studentList.Where(student => (student.Result.grade == Convert.ToInt32(args)))
-                    .Select(student => (student.Result.name + "\t" + student.Result.surname + "\t" + student.Result.gender));
-                    return FilteredList;
-            }
-        }
-        public static Boolean argumanController(string arg)
-        {
-            string[] validArgumans = new String[] { "1", "2", "3", "4", "E", "K", "e", "k" };
-            return Array.Exists(validArgumans, element => element == arg);
-        }
-        public static string argumanControllerErrorMessage(string arg)
-        {             
-            if (Regex.IsMatch(arg, @"^[0-9]+$"))
-            {
-                Console.Error.WriteLine("devre numarası 1 - 4 arasında olmalıdır");
-                return "Devre Hatası";
-
->>>>>>> 360178fa9959b9500e4cd514a96bb53b5aa7c360
             }
         }
         public static Boolean argumentController(string arg)
@@ -145,14 +101,11 @@ namespace sch
         {             
             if (Regex.IsMatch(arg, @"^[0-9]+$"))
             {
-<<<<<<< HEAD
                 Console.Error.WriteLine("devre numarası 1 - 4 arasında olmalıdır");
                 return "Devre Hatası";
             }
             else
             {
-=======
->>>>>>> 360178fa9959b9500e4cd514a96bb53b5aa7c360
                 Console.Error.WriteLine("Hatalı arguman girisi : {0}", arg);
                return "Arguman Hatası";
             }         
