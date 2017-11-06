@@ -2,6 +2,7 @@
 using sch;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,37 +16,42 @@ namespace sch.Tests
         [TestMethod()]
         public void pathControllerTest()
         {
-            Assert.AreEqual<Boolean>(true, Program.pathController("../../okul.csv"));
-            Assert.AreEqual<Boolean>(false, Program.pathController("../okul.csv"));
+            Assert.AreEqual<Boolean>(true, File.Exists("../../okul.csv"));
+            Assert.AreEqual<Boolean>(false, File.Exists("okul.csv"));
         }
 
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
         public void uniqueTest()
         {
-            sch.Student test = new Student();
-            Assert.AreEqual<Boolean>(true, Student.csvUniqueName(test.Parse("../../okul.csv")));
-            Assert.AreEqual<Boolean>(false, Student.csvUniqueName(test.Parse("../../okul_not_unique.csv")));
+            Assert.AreEqual<Boolean>(true, Student.csvUniqueName(Student.Parse("../../okul.csv")));
+            Assert.AreEqual<Boolean>(false, Student.csvUniqueName(Student.Parse("../../okul_not_unique.csv")));
         }
 
         [TestMethod()]
         public void argumanControllerTest()
         {
-            Assert.AreEqual<Boolean>(true, Student.argumanController("K"));
-            Assert.AreEqual<Boolean>(false, Student.argumanController("erkek"));
+            Assert.AreEqual<Boolean>(true, Student.argumentController("K"));
+            Assert.AreEqual<Boolean>(true, Student.argumentController("k"));
+            Assert.AreEqual<Boolean>(true, Student.argumentController("E"));
+            Assert.AreEqual<Boolean>(true, Student.argumentController("e"));
+            Assert.AreEqual<Boolean>(true, Student.argumentController("1"));
+            Assert.AreEqual<Boolean>(true, Student.argumentController("2"));
+            Assert.AreEqual<Boolean>(true, Student.argumentController("3"));
+            Assert.AreEqual<Boolean>(true, Student.argumentController("4"));
+            Assert.AreEqual<Boolean>(false, Student.argumentController("q"));
         }
-
+        [TestMethod()]
+        public void argumanLengthControl()
+        {
+            string[] testArray = new string[] { "1", "K" };
+            Assert.AreEqual<Boolean>(false, Program.argsLengthControl(testArray));
+        }
         [TestMethod()]
         public void argumanControllerErrorMessage()
         {
-            string[] testArray = new string[] { "1", "K" };
-            string[] testArray2 = new string[] { "5" };
-            string[] testArray3 = new string[] { "erkek" };
-
-            Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray));
-            Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray2));
-            Assert.AreEqual<Boolean>(false, Student.argumanControllerErrorMessage(testArray3));
-
+            Assert.AreEqual<String>("Devre Hatası", Student.argumentControllerErrorMessage("5"));
+            Assert.AreEqual<String>("Arguman Hatası", Student.argumentControllerErrorMessage("erkek"));
         }
     }
     
