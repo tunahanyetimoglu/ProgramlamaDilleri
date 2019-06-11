@@ -1,4 +1,4 @@
-# Bilgisayar Ağları Lab. Dersi Kodları
+# Programlama Dilleri Dersi
 
 [![OMÜ CEng](https://img.shields.io/badge/OM%C3%9C-CEng-blue.svg)](http://bil.muhendislik.omu.edu.tr)
 
